@@ -52,36 +52,62 @@ Content-Type: application/json
 
 #### Response:
 - **Success (200 OK):**
-  ```json
-  {
+```json
+{
     "success": true,
     "message": "Request successful",
     "data": [
-      {
-        "id": 1,
-        "foreign_id": 001,
-        "username": "admin1@securemail.com",
-        "password": "StrongPass12025",
-        "generated_data": null,
-        "latest_error": null,
-        "created_at": "2025-03-17T20:22:17.000000Z",
-        "updated_at": "2025-03-18T04:35:11.000000Z",
-        "provider": "Microsoft"
-      }
-      {
-        "id": 2,
-        "foreign_id": 002,
-        "username": "admin2@securemail.com",
-        "password": "StrongPass22025",
-        "generated_data": null,
-        "latest_error": null,
-        "created_at": "2025-03-17T20:22:17.000000Z",
-        "updated_at": "2025-03-18T04:35:11.000000Z",
-        "provider": "Microsoft"
-      }
+        {
+            "id": 1,
+            "foreign_id": 1231,
+            "username": "admin1@securemail.com",
+            "password": "StrongPass12025",
+            "metadata": {
+                "api_gateway_url": "http://example/com/api/v1",
+                "access_token": "example_access_token",
+                "refresh_token": "example_refresh_token",
+                "company_abbr": "adv"
+            },
+            "generated_data": {
+                "tenant_id": "ca8d3628-b125-40b1-84b1-c26667057251",
+                "client_id": "0042ab34-b04f-4dbc-8e85-cb0698a6980a",
+                "client_secret": "WtY8Q~T.-TyX1LvKZtsTBldIW9RGesYPtlSFlc7C"
+            },
+            "latest_error": null,
+            "created_at": "2025-03-20T22:29:55.000000Z",
+            "updated_at": "2025-03-20T22:29:55.000000Z",
+            "provider": {
+                "id": 1,
+                "name": "Microsoft"
+            }
+        },
+        {
+            "id": 2,
+            "foreign_id": 1232,
+            "username": "admin2@securemail.com",
+            "password": "StrongPass22025",
+            "metadata": {
+                "api_gateway_url": "http://example/com/api/v1",
+                "access_token": "example_access_token",
+                "refresh_token": "example_refresh_token",
+                "company_abbr": "adv"
+            },
+            "generated_data": {
+                "tenant_id": "ca8d3628-b125-40b1-84b1-c26667057251",
+                "client_id": "0042ab34-b04f-4dbc-8e85-cb0698a6980a",
+                "client_secret": "WtY8Q~T.-TyX1LvKZtsTBldIW9RGesYPtlSFlc7C"
+            },
+            "latest_error": null,
+            "created_at": "2025-03-20T22:29:55.000000Z",
+            "updated_at": "2025-03-20T22:29:55.000000Z",
+            "provider": {
+                "id": 1,
+                "name": "Microsoft"
+            }
+        }
     ]
-  }
-  ```
+}
+```
 - **Failure (404 Not Found):**
   ```json
   {
@@ -101,26 +127,26 @@ Content-Type: application/json
 #### Request Body (JSON):
 ```json
 {
-  "metadata": {
-    "api_gateway_url": "http://example/com/api/v1",
-    "access_token": "example_access_token",
-    "refresh_token": "example_refresh_token",
-    "company_abbr": "adv"
-  },
-  "accounts": [
-    {
-      "foreign_id": 001,
-      "username": "admin1@securemail.com",
-      "password": "StrongPass12025",
-      "provider": "Microsoft"
+    "metadata": {
+        "api_gateway_url" : "http://example/com/api/v1",
+        "access_token" : "example_access_token",
+        "refresh_token" : "example_refresh_token",
+        "company_abbr" : "adv"
     },
-    {
-      "foreign_id": 002,
-      "username": "admin2@securemail.com",
-      "password": "StrongPass22025",
-      "provider": "Microsoft"
-    },
-  ]
+    "accounts": [
+        {
+            "foreign_id" : 1231,
+            "username" : "admin1@securemail.com",
+            "password" : "StrongPass12025",
+            "provider" : "Microsoft"
+        },
+        {
+            "foreign_id" : 1232,
+            "username" : "admin2@securemail.com",
+            "password" : "StrongPass22025",
+            "provider" : "Microsoft"
+        }
+    ]
 }
 ```
 
@@ -136,27 +162,27 @@ Content-Type: application/json
 
 #### Response:
 - **Success (201 Created):**
-  ```json
-  {
+```json
+{
     "success": true,
     "message": "Request successful",
     "data": {
-      "total_accounts": 2,
-      "total_accounts_created": 2,
-      "total_accounts_failed": 0,
-      "failed_accounts": []
+        "total_accounts": 2,
+        "total_accounts_created": 2,
+        "total_accounts_failed": 0,
+        "failed_accounts": []
     }
-  }
-  ```
+}
+```
 - **Failure (422 Unprocessable Entity - Validation Error):**
-  ```json
-  {
+```json
+{
     "success": false,
     "message": "Validation failed!",
     "errors": {
       "accounts": ["The accounts field is required."]
     }
-  }
+}
   ```
 
 ---
@@ -170,10 +196,10 @@ Content-Type: application/json
 #### Request Body (JSON):
 ```json
 {
-  "id" : NULL
-  "foreign_id": NULL,
-  "username": NULL,
-  "provider": NULL
+    "id" : 1
+    "foreign_id": NULL,
+    "username": NULL,
+    "provider": NULL
 }
 ```
 
@@ -186,25 +212,25 @@ At least one of the following parameters is required:
 
 #### Response:
 - **Success (200 OK):**
-  ```json
-  {
+```json
+{
     "success": true,
     "message": "Request successful",
     "data": {
-      "total_accounts": 1,
-      "total_accounts_requeued": 1,
-      "total_accounts_failed": 0,
-      "failed_accounts": []
+        "total_accounts": 1,
+        "total_accounts_requeued": 1,
+        "total_accounts_failed": 0,
+        "failed_accounts": []
     }
-  }
-  ```
+}
+```
 - **Failure (404 Not Found):**
-  ```json
-  {
+```json
+{
     "success": false,
     "message": "No accounts found!"
-  }
-  ```
+}
+```
 
 ---
 
