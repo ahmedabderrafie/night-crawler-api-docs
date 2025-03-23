@@ -18,7 +18,7 @@ The Night Crawler API facilitates automated management of Microsoft Azure accoun
 ## Base URL
 
 ```http
-http://night-crawler.adsglory.org/api/accounts
+https://night-crawler.adsglory.org/api/accounts
 ```
 
 ---
