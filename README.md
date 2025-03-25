@@ -74,6 +74,7 @@ Content-Type: application/json
                 "client_secret": "WtY8Q~T.-TyX1LvKZtsTBldIW9RGesYPtlSFlc7C"
             },
             "latest_error": null,
+            "process_status": "Completed",
             "created_at": "2025-03-20T22:29:55.000000Z",
             "updated_at": "2025-03-20T22:29:55.000000Z",
             "provider": {
@@ -98,6 +99,7 @@ Content-Type: application/json
                 "client_secret": "WtY8Q~T.-TyX1LvKZtsTBldIW9RGesYPtlSFlc7C"
             },
             "latest_error": null,
+            "process_status": "Completed",
             "created_at": "2025-03-20T22:29:55.000000Z",
             "updated_at": "2025-03-20T22:29:55.000000Z",
             "provider": {
