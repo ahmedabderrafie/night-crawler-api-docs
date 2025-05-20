@@ -60,6 +60,10 @@ Content-Type: application/json
 {
     "success": true,
     "message": "Request successful",
+    "total": 2,
+    "current_page": 1,
+    "last_page": 1,
+    "per_page": "10",
     "data": [
         {
             "id": 1,
@@ -118,7 +122,9 @@ Content-Type: application/json
   ```json
   {
     "success": false,
-    "message": "No accounts found!"
+    "message": "No accounts found!",
+    "total": 0,
+    "data": []
   }
   ```
 
