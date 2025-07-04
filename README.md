@@ -43,16 +43,19 @@ Content-Type: application/json
 **Description:** Retrieves a list of accounts with optional filters.
 
 #### Query Parameters:
-| Parameter        | Type    | Required | Description                                                      |
-| ---------------- | ------- | -------- | ---------------------------------------------------------------- |
-| `id`             | Integer | No       | Filter by account ID                                             |
-| `foreign_id`     | Integer | No       | Filter by foreign ID                                             |
-| `username`       | String  | No       | Filter by username                                               |
-| `provider`       | String  | No       | Filter by account provider                                       |
-| `process_status` | String  | No       | Filter by status: `pending`, `processing`, `completed`, `failed` |
-| `company_abbr`   | String  | No       | Filter by company abbreviation                                   |
-| `per_page`       | Integer | No       | Number of results per page (min: 1, max: 100, default: all)      |
-| `page`           | Integer | No       | Current page number (min: 1, default: 1)                         |
+| Parameter         | Type    | Required | Description                                                       |
+| ----------------- | ------- | -------- | ----------------------------------------------------------------- |
+| `id`              | Integer | No       | Filter by account ID                                              |
+| `foreign_id`      | Integer | No       | Filter by foreign ID                                              |
+| `username`        | String  | No       | Filter by username                                                |
+| `provider`        | String  | No       | Filter by account provider                                        |
+| `process_status`  | String  | No       | Filter by status: `pending`, `processing`, `completed`, `failed`  |
+| `company_abbr`    | String  | No       | Filter by company abbreviation                                    |
+| `created_at_from` | String  | No       | Filter accounts created **on or after** this date (`YYYY-MM-DD`)  |
+| `created_at_to`   | String  | No       | Filter accounts created **on or before** this date (`YYYY-MM-DD`) |
+| `per_page`        | Integer | No       | Number of results per page (min: 1, max: 100, default: all)       |
+| `page`            | Integer | No       | Current page number (min: 1, default: 1)                          |
+
 
 #### Response:
 - **Success (200 OK):**
